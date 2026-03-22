@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/index.css">
+  <title>The Gentry Barbershop | Master Grooming</title>
+</head>
+<body>
+  <nav class="fixed w-full z-50 border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="font-bold text-xl tracking-widest text-[var(--primary)]">THE GENTRY</span>
+      <a href="/admin.html" class="text-[var(--text-muted)] hover:text-[var(--primary)] text-sm uppercase">Manage Bookings</a>
+    </div>
+  </nav>
+
+  <header class="relative h-screen flex items-center justify-center overflow-hidden">
+    <img src="https://images.pexels.com/photos/7195803/pexels-photo-7195803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="absolute w-full h-full object-cover opacity-40" />
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-[clamp(42px,6vw,88px)] font-bold mb-6">Precision Grooming for <span id="typed">Modern Men</span></h1>
+      <div class="flex gap-4 justify-center">
+        <a href="#book" class="btn-primary">Book Appointment</a>
+        <a href="/admin.html" class="btn-primary">Manage Bookings</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="book" class="py-20 max-w-2xl mx-auto px-6">
+    <div class="card">
+      <h2 class="text-2xl mb-8">Secure Your Chair</h2>
+      <form data-booking action="https://www.ammoue.dev/api/booking" method="POST" class="grid gap-4">
+        <input type="hidden" name="business_id" value="biz_ikajm1l5">
+        <input type="text" name="customer_name" placeholder="Full Name" class="w-full bg-[var(--surface-2)] border border-[var(--border)] p-3 text-[var(--text)]" required>
+        <input type="email" name="customer_email" placeholder="Email Address" class="w-full bg-[var(--surface-2)] border border-[var(--border)] p-3 text-[var(--text)]" required>
+        <input type="date" name="booking_date" class="w-full bg-[var(--surface-2)] border border-[var(--border)] p-3 text-[var(--text)]" required>
+        <select name="service_id" class="w-full bg-[var(--surface-2)] border border-[var(--border)] p-3 text-[var(--text)]">
+          <option value="general">Classic Precision Cut - $25</option>
+        </select>
+        <button type="submit" class="btn-primary mt-4">Confirm Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const text = "Modern Men";
+    const el = document.getElementById('typed');
+    let i = 0;
+    setInterval(() => {
+        el.innerText = text.slice(0, ++i % (text.length + 1));
+    }, 200);
+  </script>
+</body>
+</html>
